@@ -53,7 +53,7 @@ int HashTable::elfHash (std::string name) {
         		int hiBits = hashValue & 0xF0000000;
         		if (hiBits != 0){
         			hashValue ^= hashValue >> 24;
-        		}            		
+        		}
         		hashValue &= ~hiBits;
     	}
     	return hashValue % tableSize;
@@ -73,6 +73,7 @@ int HashTable::cryptoHash (std::string name) {
 
 int HashTable::djb2Hash(std::string name){
 	unsigned long g = 5381;
+	string m;
         	for(int i = 0; i < name.length(); i++){
             		g = ((g << 5) + g) + m[i];
         	}
@@ -81,6 +82,7 @@ int HashTable::djb2Hash(std::string name){
 
 int HashTable::sdbmHash(std::string name){
 	unsigned long g = 0;
+	string m;
         	for(int i = 0; i < name.length(); i++){
             		g = m[i] + (g << 6) + (g << 16) - g;
         	}
