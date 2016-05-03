@@ -25,7 +25,7 @@ class HashTable
 	public:
 		HashTable();
 		~HashTable();
-		void insertMovie(std::string name, int year);
+		void insertMovie(std::string name, int year, int index);
 		void runTests(std::vector<HashElem> movies);
 		void clearTable();
 		int simpleHash(std::string);
